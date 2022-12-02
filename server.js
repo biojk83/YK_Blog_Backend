@@ -8,9 +8,10 @@ const postRoute = require("./routes/posts");
 const categoryRoute = require("./routes/categories");
 const multer = require("multer");
 const path = require("path");
-const port = process.env.PORT || 5000;
+
 
 dotenv.config();
+const port = process.env.PORT || 5000;
 app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "/images")));
 
