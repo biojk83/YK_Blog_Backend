@@ -24,6 +24,7 @@ router.post("/register", async (req, res) => {
 //LOGIN
 router.post("/login", async (req, res) => {
   try {
+    console.log("backend login start")
     const user = await User.findOne({ username: req.body.username });
     !user && res.status(400).json("Wrong credentials!");
 
@@ -33,6 +34,7 @@ router.post("/login", async (req, res) => {
     //send everything but password
     const { password, ...others } = user._doc;
     res.status(200).json(others);
+    console.log("backend login end")
   } catch (err) {
     res.status(500).json(err);
   }
